@@ -1,0 +1,78 @@
+# Collect summary statistics on data packages
+
+Given a list of data package references from DataStore the function will
+download the indicated data packages (using creating the folders
+/data/reference for each data package; see \`get_data_packages\` for
+details), load them into R, and then collect some summary statistics on
+the data packages.
+
+## Usage
+
+``` r
+summarize_packages(ref_list, secure = TRUE, check_metadata = FALSE)
+```
+
+## Arguments
+
+- ref_list:
+
+  list or string of data package reference IDs from DataStore
+  (potentially generated via \`get_references_list\`.
+
+- secure:
+
+  logical. Defaults to TRUE to access secure DataStore server and
+  restricted data packages. Set to FALSE to to access only public
+  references.
+
+- check_metadata:
+
+  Logical. Defaults to FALSE. In this case, metadata will not be checked
+  or loaded. Any load errors will occur due to problems with .csv files
+  (for instance if they don't exist). To test whether the metadata meets
+  minimal requirements (is schema-valid), set check_metadata = TRUE.
+
+## Value
+
+data frame
+
+## Details
+
+If a data package fails to download (or load) into R, the function will
+return NAs instead of summary data about the data package as well as a
+message about the package status ("Loads", "Error") in the dataframe
+that the function returns. The function will ignore files that fall
+outside the data package specifications (one or more .csv files and a
+single .xml file ending in \*\_metadata.xml).
+
+When \`check_metadata\` is set to the default \`FALSE\`, the function
+will attempt to and load any .csv, regardless of the contents. Data
+packages with restricted access can produce false positives if you do
+not have the appropriate permissions to download the data as the
+function will still download the files, but they will be populated with
+unhelpful hmtl rather than the intended data. In this case, each .csv
+will be listed as having 5 columns and one row of data. Functions that
+completely fail to load into R likely violate the data package
+specifications in some fundamental way (e.g. .CSV file instead of .csv
+or no .csv files at all).
+
+When \`check_metadata\` is set to \`TRUE\`, additional checks and tests
+are run on the data package and load errors may occur for all of the
+above reasons and also if there are multiple .xml files, if the metadata
+file name does not end in "\*\_metadata.xml", if there is no metadata
+file, or if the metadata file is EML schema-invalid.
+
+If you have access to restricted DataStore references (e.g. in an NPS
+office or logged in to an NPS VPN), you can set secure = TRUE. This will
+give you access to restricted (internal to NPS) references but if a
+reference is restricted to a named list of individuals you must be on
+that named list to access the reference.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+x <- get_ref_list()
+get_ref_info(x[[1]])
+} # }
+```

@@ -1,0 +1,60 @@
+# Gets common EML metadata elements and puts them in a dataframe \#' \`r lifecycle::badge('experimental')\`
+
+\#' @description \`load_core_metadata()\` gets commonly used EML
+metadata items from a previously downloaded data package, extracts them,
+and returns them as single data frame. This is particularly useful when
+importing data packages into Power BI as Power BI will only import items
+in data frames.
+
+## Usage
+
+``` r
+load_core_metadata(ds_ref, path = here::here("data"))
+```
+
+## Arguments
+
+- ds_ref:
+
+  Integer. The DataStore reference number of a previously downloaded
+  data package (if downloaded using \`get_data_packages()\`).
+
+- path:
+
+  String. The location of the data package. If you used the default
+  settings for where data packages are downloaded by
+  \`get_data_packages()\`, directory can also be left as the default.
+
+## Value
+
+dataframe
+
+## Details
+
+\#' @details The returned dataframe has three columns, EML_element,
+EML_data and EML_data2. EML_element describes the EML element that was
+extracted. EML_data and EML_data2 contain the data from that element. In
+the case of EML_elements with only one piece of data (e.g. the data
+package title), the data is repeated in the EML_data and EML_data2
+columns. In cases where the element contains two related pieces of data
+(e.g. author), those items are held in EML_data (e.g. the author's name)
+and EML_data2 (e.g. the author's email address).
+
+Currently this function is under development and may have issues if an
+author is an organization. If you have a data package with these issues,
+please contact \[robert_baker@nps.gov\](mailto:robert_baker@nps.gov).
+
+The fields that should be returned in the dataframe include: title,
+publication date, authors (and emails), contacts (and emails),
+publisher, DOI, publisher city, publisher state, content begin date,
+content end date, the abstract, notes, "for or by NPS", the license name
+(e.g. "Public Domain", "CC0"), and a list of each data file in the data
+package by name.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+df <- load_core_metadata(1234567)
+} # }
+```
