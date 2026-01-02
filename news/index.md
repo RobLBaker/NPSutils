@@ -2,12 +2,22 @@
 
 ## NPSutils 1.1.0
 
+### 2026-01-02
+
+- DataStore API calls now use v8 endpoints (v7 was deprecated with
+  DataStore 4.0 release)
+
 ### 2025-09-15
 
 - Update Unit service API to use current version (instead of
-  discontinued legacy endpoint) \## 2025-05-16
-- Add a vignette going over basic functions and how to use NPSutils \##
-  2025-05-08
+  discontinued legacy endpoint)
+
+### 2025-05-16
+
+- Add a vignette going over basic functions and how to use NPSutils
+
+### 2025-05-08
+
 - add unit tests for all functions. Add packages necessary for unit
   tests to Suggests in DESCRIPTION file.
 
@@ -18,7 +28,10 @@
 
 ### 2025-03-12
 
-- Update to MIT license \## 2025-02-25
+- Update to MIT license
+
+### 2025-02-25
+
 - Update `CONTRIBUTING.md`
 - Update readme to remove mention of “borked” functions
 
@@ -30,7 +43,10 @@
 
 ### 2025-01-22
 
-- Update license to CC0. \## 2025-01-19
+- Update license to CC0.
+
+### 2025-01-19
+
 - remove `get_data_packages_deprecated()` is a breaking change resulting
   in release of v.1.0.0.  
 - update documentation for
@@ -46,7 +62,10 @@
   functions in the DPchecker package.
 - remove `load_domains()` as this function was not working properly and
   was conceived of before the data package specifications were properly
-  set. \## 2024-12-19
+  set.
+
+### 2024-12-19
+
 - updated `load_pkg_metadata` to be simpler and essentially call
   [`DPchecker::load_metadata`](https://nationalparkservice.github.io/DPchecker/reference/load_metadata.html)
   but with a preset default directory structure that works well with the
@@ -54,10 +73,15 @@
 - Add meta-analysis functions for finding and producing summary
   statistics multiple data packages including `get_ref_list`,
   [`get_refs_info()`](https://nationalparkservice.github.io/NPSutils/reference/get_refs_info.md),
-  and `summarize_packages`. \## 2024-10-24
+  and `summarize_packages`.
+
+### 2024-10-24
+
 - fix how `get_data_package` aliases `get_data_packages`, specifically
-  now allows users to adjust parameters to non-default settings. \##
-  2024-10-21
+  now allows users to adjust parameters to non-default settings.
+
+### 2024-10-21
+
 - Bug fixes to
   [`load_data_package()`](https://nationalparkservice.github.io/NPSutils/reference/load_data_packages.md)
 - Bug fixes to `.get_authors()`
@@ -196,11 +220,9 @@
 
 ## NPSutils 0.2.0.0
 
-Facelift to the entire package:
-
-- Functions and parameters have snake_case names
-- Tidyverse styling via styler
-- Added bare-bones pkgdown site
+Facelift to the entire package: \* Functions and parameters have
+snake_case names \* Tidyverse styling via styler \* Added bare-bones
+pkgdown site
 
 ## NPSutils 0.1.0.0
 
