@@ -1,6 +1,11 @@
 # Changelog
 
-## NPSutils 1.1.0
+## NPSutils 1.2.0 (development version)
+
+### 2026-02-12
+
+- Fix bug in `get_data_packages` that was causing an error when
+  simultaneously attempting to download multiple data packages.
 
 ### 2026-01-02
 
@@ -11,6 +16,8 @@
 
 - Update Unit service API to use current version (instead of
   discontinued legacy endpoint)
+
+## NPSutils 1.1.0
 
 ### 2025-05-16
 
