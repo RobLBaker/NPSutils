@@ -18,13 +18,13 @@ Source:
 
 Baker R, DeVivo J, Patterson J, Wright SE (2026). *NPSutils: Collection
 of Functions to read and manipulate information from the NPS DataStore*.
-R package version 1.1.0,
+R package version 1.2.0,
 <https://nationalparkservice.github.io/NPSutils/>.
 
     @Manual{,
       title = {NPSutils: Collection of Functions to read and manipulate information from the NPS DataStore},
       author = {Robert Baker and Joe DeVivo and Judd Patterson and Sarah E. Wright},
       year = {2026},
-      note = {R package version 1.1.0},
+      note = {R package version 1.2.0},
       url = {https://nationalparkservice.github.io/NPSutils/},
     }
